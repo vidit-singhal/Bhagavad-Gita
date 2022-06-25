@@ -1,20 +1,37 @@
+
+function hideloading() {
+  $(window).on('load', function () {
+    $('.loader-wrapper').fadeOut("slow");
+  })
+
+}
+
+
+
+
 async function getData() {
   let windowURL = window.location.href;
   let urlIndex =
-    windowURL.split("/")[3].split(".html")[0].split("ChapterPage")[1] - 1;
-
+    windowURL.split("/")[4].split(".html")[0].split("ChapterPage")[1] - 1;
   const slokcount = [
     47, 72, 43, 42, 29, 47, 30, 28, 34, 42, 55, 20, 35, 27, 20, 24, 28, 78,
   ];
 
+
+
+
   const chapter = urlIndex + 1;
   res = [];
+
 
   for (i = 1; i <= slokcount[urlIndex]; i++) {
     url = "https://bhagavadgitaapi.in/slok/" + `${chapter}/${i}/`;
     console.log(url)
     await fetch(url).then(async (r) => res.push(await r.json()));
+
   }
+
+
 
   res.sort((p, n) => p.verse > n.verse);
   console.log(res);
@@ -74,11 +91,13 @@ async function getData() {
       `
       ;
     $(".verse").append(html);
+    // hideloading()
+
   });
+
 }
 
 getData();
-
 
 // <h2 class="sm:text-3xl font-medium  title-font mb-1 text-gray-900 my-3 " style= "text-align: center">
 //         Verse ${slok.verse}

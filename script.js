@@ -27,7 +27,7 @@ $.get(url, (response) => {
       <p class="text-base leading-relaxed mt-2">
         ${response[i].summary.en}
       </p>
-      <a href="./ChapterPage${response[i].chapter_number}.html"
+      <a href="./chapterpages/ChapterPage${response[i].chapter_number}.html" 
         class="text-orange-500 inline-flex items-center mt-3"
         style="cursor: pointer"
         >Read More..
